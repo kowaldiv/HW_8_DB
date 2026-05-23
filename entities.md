@@ -175,5 +175,6 @@
 
 ## Схема 
 
-<img width="1167" height="1062" alt="изображение" src="https://github.com/user-attachments/assets/b670828d-edf7-47ac-b0c9-4a2e8c5e062c" />
+<img width="1162" height="1063" alt="изображение" src="https://github.com/user-attachments/assets/552d573d-565c-4bed-a74a-039c91f7a26b" />
+
 
