@@ -108,7 +108,7 @@ erDiagram
     CHATS ||--o{ CHAT_PARTICIPANTS : ""
     CHATS ||--o{ MESSAGES : ""
     CHATS ||--o{ INVITE_LINKS : ""
-    CHATS ||--o{ CHANNEL_SETTINGS : ""
+    CHATS ||--|| CHANNEL_SETTINGS : ""
     CHATS ||--o{ REPORTS : ""
 
     MESSAGES ||--o{ ATTACHMENTS : ""
@@ -118,3 +118,22 @@ erDiagram
     USERS ||--o{ AVATARS : ""
     CHATS ||--o{ AVATARS : ""
 ```
+
+Связь | Тип | Описание
+| --- | --- | --- |
+Users → Sessions | 1:N | Один пользователь может иметь несколько активных сессий (устройств/токенов)
+Users → Chat_Participants | 1:N | Один пользователь может состоять во многих чатах
+Users → Messages | 1:N | Один пользователь может отправлять множество сообщений
+Users → Message_Reactions | 1:N | Один пользователь может ставить реакции на разные сообщения
+Users → Reports | 1:N | Один пользователь может создавать несколько жалоб
+Users → Avatars | 1:N | Один пользователь может иметь несколько аватаров 
+Chats → Chat_Participants | 1:N | В одном чате может быть множество участников
+Chats → Messages | 1:N | В одном чате хранится история из множества сообщений
+Chats → Invite_Links | 1:N | У чата может быть несколько ссылок-приглашений (активных и истёкших)
+Chats → Channel_Settings | 1:1 | У каждого канала свой один набор настроек
+Chats → Reports | 1:N | На один чат могут поступать жалобы от разных пользователей
+Chats → Avatars | 1:N | У чата может быть несколько аватаров (история смены обложки)
+Messages → Attachments | 1:N | К одному сообщению можно прикрепить несколько файлов
+Messages → Message_Reactions | 1:N | Одно сообщение может получать реакции от многих пользователей
+Messages → Messages | 1:N | На одно сообщение может быть несколько ответов (хранится через reply_to_id) 
+Users ↔ Chats | M:N | Через промежуточную таблицу Chat_Participants — пользователь вступает во многие чаты, в чате много пользователей
